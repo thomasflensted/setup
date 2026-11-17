@@ -1,0 +1,42 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = thomasflensted
+	email = 74050633+thomasflensted@users.noreply.github.com
+[core]
+	editor = code --wait
+	pager = cat
+[alias]
+	amen = "!git add -A && git commit --amen --no-edit"
+	cleanup = !git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+	st = status
+    p = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
+    pn = "!f() { git add -A && git commit -m \"$1\" && git push -u origin head; }; f"
+	m = switch main
+	swtich = switch
+	nb  = "switch -c"
+	b = "switch"
+	ac = "!git add -A && git commit -m"
+    bankruptcy = "!f() { \
+        if [ $# -ne 2 ]; then \
+            echo \"Error: Exactly two arguments required\"; \
+            echo \"Usage: git bankruptcy <old-branch> <new-branch>\"; \
+            return 1; \
+        fi; \
+        git switch main && \
+        git switch -c \"$2\" && \
+        git merge --squash \"$1\" && \
+        git reset; \
+    }; f"
+	back = "switch -"
+	del = "branch -d"
+	forcedel = "branch -D"
+	mp = "!git switch main && git pull"
+	pushremote = push -u origin head
+	rename = branch -m
+
+	
+	
