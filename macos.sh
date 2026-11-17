@@ -22,6 +22,10 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock mru-spaces -bool false
 killall Dock
 
+# Widgets: hide on desktop and in Stage Manager
+defaults write com.apple.WindowManager StandardHideWidgets -bool true
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
+
 # Screenshots: save to Downloads
 defaults write com.apple.screencapture location -string "$HOME/Downloads"
 
