@@ -17,6 +17,9 @@ defaults write -g com.apple.trackpad.scaling -float 0.875
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 33
 defaults write com.apple.dock show-recents -bool false
+
+# Spaces: keep them in the order I put them
+defaults write com.apple.dock mru-spaces -bool false
 killall Dock
 
 # Screenshots: save to Downloads
